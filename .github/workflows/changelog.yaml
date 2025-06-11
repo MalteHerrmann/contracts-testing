@@ -1,4 +1,4 @@
-name: Changelog Linter
+name: Changelog Checks
 
 on:
   push:
@@ -11,6 +11,14 @@ permissions:
   contents: read
 
 jobs:
+  check-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Changelog for changes
+        uses: tarides/changelog-check-action@v3
+        with:
+          changelog: CHANGELOG.md
+
   lint-changelog:
     runs-on: ubuntu-latest
 
