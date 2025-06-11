@@ -24,7 +24,7 @@ const hardhatConfig: HardhatUserConfig = {
     },
     oslocal: {
       url: "http://127.0.0.1:8545",
-      chainId: 9005,
+      chainId: 9001,
       accounts: process.env.LOCAL_KEYS.split(","),
     },
     evmostestnet: {
@@ -37,6 +37,17 @@ const hardhatConfig: HardhatUserConfig = {
       chainId: 9001,
       accounts: process.env.MAINNET_KEYS.split(","),
     },
+    sagaoslocal: {
+      // NOTE: this would usually be 8545 but this is set up for hanchond which remaps the ports
+      url: "http://127.0.0.1:53901",
+      chainId: 1234,
+      accounts: process.env.LOCAL_KEYS.split(",")
+    },
+    sagaosstaging: {
+      url: "https://sagaevm-54647357-1.jsonrpc.staging-srv.sagarpc.io:443",
+      chainId: 54647357,
+      accounts: process.env.TESTNET_KEYS.split(",")
+    }
   },
 };
 
