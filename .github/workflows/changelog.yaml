@@ -1,0 +1,32 @@
+name: Changelog Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  check-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Changelog for changes
+        uses: tarides/changelog-check-action@v3
+        with:
+          changelog: CHANGELOG.md
+
+  lint-changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v4
+
+    - name: Run changelog linter
+      uses: MalteHerrmann/changelog-lint-action@v0.3.0
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
