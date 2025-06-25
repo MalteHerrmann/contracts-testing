@@ -39,7 +39,7 @@ const hardhatConfig: HardhatUserConfig = {
     },
     sagaoslocal: {
       // NOTE: this would usually be 8545 but this is set up for hanchond which remaps the ports
-      url: "http://127.0.0.1:53610",
+      url: "http://127.0.0.1:57820",
       chainId: 1234,
       accounts: process.env.LOCAL_KEYS.split(",")
     },
