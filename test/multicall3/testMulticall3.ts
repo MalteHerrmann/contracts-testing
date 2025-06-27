@@ -100,6 +100,9 @@ describe("Multicall3 functionality", function () {
     const balanceOfSelector = "0x70a08231"; // balanceOf(address)
     
     // Encode balanceOf calls
+    //
+    // NOTE: this is akin to how it's done in the examples listed in the multicall3 repo:
+    // https://github.com/mds1/multicall3/blob/5f90062160aedb7c807fadca469ac783a0557b57/examples/typescript/ethers.ts#L47-L51
     const deployerBalance1Data = token1.interface.encodeFunctionData("balanceOf", [deployerAddress]);
     const receiverBalance1Data = token1.interface.encodeFunctionData("balanceOf", [receiverAddress]);
     const deployerBalance2Data = token2.interface.encodeFunctionData("balanceOf", [deployerAddress]);
@@ -131,10 +134,9 @@ describe("Multicall3 functionality", function () {
     
     console.log("Executing multicall3 aggregate3 for initial balances...");
     
-    // Since ethers.provider.call() returns bytecode, let's use the contract instance method
+    // NOTE: this is akin to how it's done in the examples listed in the multicall3 repo:
+    // https://github.com/mds1/multicall3/blob/5f90062160aedb7c807fadca469ac783a0557b57/examples/typescript/ethers.ts#L73-L74
     const results = await multicall3.aggregate3.staticCall(calls);
-    
-    console.log("Results from multicall3:", results);
     
     expect(results).to.have.length(4);
     expect(results[0].success).to.be.true;
