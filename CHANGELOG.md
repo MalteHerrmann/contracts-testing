@@ -8,6 +8,7 @@ This changelog was created using the `clu` binary
 
 ### Features
 
+- (tests) [#4](https://github.com/MalteHerrmann/contracts-testing/pull/4) Add multicall3 test.
 - (tests) [#3](https://github.com/MalteHerrmann/contracts-testing/pull/3) Add deterministic deployment proxy test.
 - (all) [#2](https://github.com/MalteHerrmann/contracts-testing/pull/2) Several minor additions for tests and scripts.
 - (ci) [#1](https://github.com/MalteHerrmann/contracts-testing/pull/1) Add changelog configuration and initialize empty changelog.
